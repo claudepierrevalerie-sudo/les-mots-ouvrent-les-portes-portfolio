@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Controle avant PWA - Mini-site V2</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #12233a;
+      --muted: #4a617f;
+      --ok: #107c41;
+      --warn: #9a6b00;
+      --bad: #b42318;
+      --line: #d9e3ef;
+      --accent: #124f86;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at 20% 0%, #eef4fb 0%, var(--bg) 60%);
+    }
+
+    header {
+      padding: 1rem 1.25rem;
+      background: linear-gradient(90deg, #0f2f52 0%, #144b7e 100%);
+      color: #fff;
+      border-bottom: 3px solid #d8b36b;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.15rem;
+      letter-spacing: 0.02em;
+    }
+
+    .sub {
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(300px, 420px) 1fr;
+      gap: 1rem;
+      padding: 1rem;
+      min-height: calc(100vh - 86px);
+    }
+
+    .panel,
+    .viewer {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 10px 22px rgba(18, 35, 58, 0.08);
+    }
+
+    .panel {
+      padding: 1rem;
+      overflow: auto;
+    }
+
+    .viewer {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+
+    button,
+    select {
+      border: 1px solid #a8bdd7;
+      background: #f9fcff;
+      color: #133656;
+      border-radius: 9px;
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button:hover,
+    button:focus,
+    select:hover,
+    select:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: #eef6ff;
+    }
+
+    .result-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .result-list li {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0.55rem 0.65rem;
+      background: #fbfdff;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-right: 0.45rem;
+      min-width: 46px;
+      text-align: center;
+      padding: 0.08rem 0.35rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .ok { background: var(--ok); }
+    .warn { background: var(--warn); }
+    .bad { background: var(--bad); }
+
+    .checklist {
+      margin-top: 1rem;
+      border-top: 1px dashed #c6d5e8;
+      padding-top: 0.85rem;
+    }
+
+    .checklist h2,
+    .tests h2 {
+      margin: 0 0 0.55rem;
+      font-size: 1rem;
+    }
+
+    .checklist label {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      align-items: start;
+      gap: 0.55rem;
+      font-size: 0.9rem;
+      margin-bottom: 0.45rem;
+      color: #173a5d;
+    }
+
+    .hint {
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-left: 3px solid #b3c8e0;
+      padding-left: 0.6rem;
+    }
+
+    .viewer-head {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .frame-wrap {
+      padding: 0.85rem;
+      overflow: auto;
+      flex: 1;
+    }
+
+    .frame-shell {
+      margin: 0 auto;
+      border: 1px solid #c0d1e6;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(18, 35, 58, 0.14);
+      background: #fff;
+      transition: width 0.2s ease;
+    }
+
+    iframe {
+      width: 100%;
+      height: 78vh;
+      border: 0;
+      display: block;
+      background: #fff;
+    }
+
+    .meta {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 980px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      iframe {
+        height: 70vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Controle avant lancement PWA</h1>
+    <div class="sub">Mini-site V2 - verification visuelle et technique avant etape PWA</div>
+  </header>
+
+  <main class="layout">
+    <aside class="panel">
+      <section class="tests">
+        <h2>Tests automatiques rapides</h2>
+        <div class="row">
+          <button id="run-tests" type="button">Lancer les tests</button>
+          <button id="reload-frame" type="button">Recharger l'apercu</button>
+        </div>
+        <ul id="results" class="result-list"></ul>
+      </section>
+
+      <section class="checklist">
+        <h2>Checklist visuelle et fonctionnelle</h2>
+        <label><input type="checkbox"> Le statut affiche bien un succes avec compteur (6 cartes)</label>
+        <label><input type="checkbox"> Les 6 cartes checklist sont visibles et lisibles</label>
+        <label><input type="checkbox"> Les 6 flashcards affichent/masquent la reponse</label>
+        <label><input type="checkbox"> Le bouton Reessayer apparait en cas d'erreur</label>
+        <label><input type="checkbox"> Navigation clavier: menu burger et boutons cartes</label>
+        <label><input type="checkbox"> Responsive mobile: pas de barre horizontale a 320px</label>
+        <label><input type="checkbox"> Contraste texte/fond globalement confortable</label>
+        <label><input type="checkbox"> Console navigateur sans erreur bloquante</label>
+      </section>
+
+      <p class="hint">
+        Astuce: utilise les largeurs 320/390/768/1280 puis coche la checklist.
+        Cette page ne modifie pas le site; elle sert uniquement de controle avant PWA.
+      </p>
+    </aside>
+
+    <section class="viewer">
+      <div class="viewer-head">
+        <div class="row">
+          <label for="viewport">Largeur apercu:</label>
+          <select id="viewport">
+            <option value="320">320 (mobile mini)</option>
+            <option value="390" selected>390 (mobile)</option>
+            <option value="768">768 (tablette)</option>
+            <option value="1280">1280 (desktop)</option>
+            <option value="100%">100% (fluide)</option>
+          </select>
+        </div>
+        <div class="meta" id="meta-url">Source: ./index.html</div>
+      </div>
+
+      <div class="frame-wrap">
+        <div class="frame-shell" id="frame-shell" style="width: 390px; max-width: 100%;">
+          <iframe id="preview" title="Apercu mini-site V2" src="./index.html"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var runBtn = document.getElementById("run-tests");
+      var reloadBtn = document.getElementById("reload-frame");
+      var results = document.getElementById("results");
+      var frame = document.getElementById("preview");
+      var shell = document.getElementById("frame-shell");
+      var viewport = document.getElementById("viewport");
+
+      function addResult(level, label, detail) {
+        var li = document.createElement("li");
+        var badge = document.createElement("span");
+        badge.className = "badge " + level;
+        badge.textContent = level.toUpperCase();
+
+        var strong = document.createElement("strong");
+        strong.textContent = label + " ";
+
+        var text = document.createTextNode(detail);
+
+        li.appendChild(badge);
+        li.appendChild(strong);
+        li.appendChild(text);
+        results.appendChild(li);
+      }
+
+      function clearResults() {
+        results.textContent = "";
+      }
+
+      function readFrameDoc() {
+        return frame && frame.contentDocument ? frame.contentDocument : null;
+      }
+
+      async function runChecks() {
+        clearResults();
+        addResult("warn", "Demarrage", "Execution des controles...");
+
+        try {
+          var response = await fetch("./data/data.json", { cache: "no-store" });
+          addResult(response.ok ? "ok" : "bad", "Fetch data", "HTTP " + response.status);
+
+          var json = await response.json();
+          var isArray = Array.isArray(json);
+          addResult(isArray ? "ok" : "bad", "Type JSON", isArray ? "Tableau detecte" : "Objet non-tableau");
+
+          if (isArray) {
+            addResult((json.length >= 6 && json.length <= 12) ? "ok" : "warn", "Volume", json.length + " objets");
+
+            var required = ["id", "titre", "description", "categorie", "niveau", "objectifs", "activite", "livrable", "question", "reponse"];
+            var unique = new Set();
+            var schemaOk = true;
+            for (var i = 0; i < json.length; i += 1) {
+              var item = json[i];
+              for (var r = 0; r < required.length; r += 1) {
+                var k = required[r];
+                if (!(k in item)) {
+                  schemaOk = false;
+                }
+              }
+              if (unique.has(item.id)) {
+                schemaOk = false;
+              }
+              unique.add(item.id);
+              if (!Array.isArray(item.objectifs)) {
+                schemaOk = false;
+              }
+            }
+            addResult(schemaOk ? "ok" : "bad", "Schema", schemaOk ? "Cles et ids valides" : "Schema incomplet ou ids dupliques");
+          }
+        } catch (error) {
+          addResult("bad", "JSON", "Erreur: " + error.message);
+        }
+
+        var doc = readFrameDoc();
+        if (!doc) {
+          addResult("bad", "Apercu", "Impossible de lire le document de l'iframe");
+          return;
+        }
+
+        var status = doc.getElementById("data-status");
+        var checklistCards = doc.querySelectorAll("#checklist-cards article").length;
+        var flashcards = doc.querySelectorAll("#flashcards-list article").length;
+        var retry = doc.getElementById("retry-button");
+        var burger = doc.getElementById("nav-burger");
+
+        addResult(status ? "ok" : "bad", "Statut", status ? status.textContent.trim() : "Element #data-status absent");
+        addResult(checklistCards === 6 ? "ok" : "warn", "Checklist", checklistCards + " cartes detectees");
+        addResult(flashcards === 6 ? "ok" : "warn", "Flashcards", flashcards + " cartes detectees");
+        addResult(retry ? "ok" : "bad", "Reessayer", retry ? "Bouton present" : "Bouton absent");
+        addResult(burger ? "ok" : "warn", "Menu mobile", burger ? "Bouton burger present" : "Bouton burger absent");
+
+        var hasHorizontalOverflow = doc.documentElement.scrollWidth > doc.documentElement.clientWidth;
+        addResult(hasHorizontalOverflow ? "bad" : "ok", "Overflow horizontal", hasHorizontalOverflow ? "Detecte" : "Aucun");
+      }
+
+      runBtn.addEventListener("click", runChecks);
+
+      reloadBtn.addEventListener("click", function () {
+        frame.contentWindow.location.reload();
+        clearResults();
+        addResult("warn", "Apercu", "Recharge effectuee. Relance les tests.");
+      });
+
+      viewport.addEventListener("change", function () {
+        var val = viewport.value;
+        shell.style.width = val === "100%" ? "100%" : val + "px";
+      });
+    })();
+  </script>
+</body>
+</html>
