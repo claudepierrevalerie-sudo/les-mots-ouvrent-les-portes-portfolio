@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Les mots qui ouvrent les portes — Formation expression orale</title>
+  <meta name="description" content="15 modules pour gagner en confiance, en clarté et en impact dans toutes vos prises de parole. Professionnels, entrepreneurs, étudiants.">
+  <meta name="theme-color" content="#0d2340">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Expression orale">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="./assets/icons/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="./assets/icons/icon-512.png">
+  <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
+  <link rel="stylesheet" href="./css/styles.css?v=2">
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════
+       HEADER / NAVIGATION
+  ══════════════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav-inner" aria-label="Navigation principale">
+        <a href="#accueil" class="nav-logo">Les mots qui ouvrent les portes</a>
+
+        <ul class="nav-links" role="list">
+          <li><a href="#checklist">Checklist</a></li>
+          <li><a href="#probleme">Le problème</a></li>
+          <li><a href="#formation">La formation</a></li>
+          <li><a href="#modules">Les modules</a></li>
+          <li><a href="#exemples">Avant / Après</a></li>
+        </ul>
+
+        <a href="#offre" class="nav-cta">Module 1 offert</a>
+
+        <button
+          class="nav-burger"
+          id="nav-burger"
+          aria-controls="nav-mobile"
+          aria-expanded="false"
+          aria-label="Ouvrir le menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Menu mobile -->
+    <nav id="nav-mobile" class="nav-mobile" aria-label="Menu mobile">
+      <a href="#checklist">Checklist</a>
+      <a href="#probleme">Le problème</a>
+      <a href="#formation">La formation</a>
+      <a href="#modules">Les modules</a>
+      <a href="#exemples">Avant / Après</a>
+      <a href="#offre">Module 1 offert</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════════ -->
+    <section class="hero" id="accueil">
+      <div class="container hero-layout">
+        <div class="hero-text">
+          <p class="hero-tag">Formation · Expression orale · 15 modules</p>
+          <h1>La façon dont vous parlez détermine la place qu'on vous accorde</h1>
+          <p class="hero-subtitle">
+            Gagnez en clarté, en confiance et en impact dans toutes vos prises de parole.
+            Un entraînement concret, avec des exemples réels, applicable dès le premier module.
+          </p>
+          <div class="hero-actions">
+            <a href="#offre" class="btn-primary">Recevoir le Module 1 gratuitement</a>
+            <a href="#formation" class="btn-ghost">Découvrir la formation</a>
+          </div>
+          <p class="hero-note">Formation premium · Accessible à tous · 20 minutes par session</p>
+        </div>
+        <figure class="hero-illustration" aria-label="Photo de couverture de la formation">
+          <div class="hero-photo-frame">
+            <img
+              src="./assets/images/hero-photo.png"
+              alt="Couverture de la formation expression orale"
+              class="hero-photo"
+              loading="eager"
+              decoding="async"
+            >
+          </div>
+          <figcaption class="hero-photo-caption">Une communication claire ouvre des opportunités concrètes.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         CITATION
+    ══════════════════════════════════════════════ -->
+    <section class="quote-section">
+      <div class="container quote-layout">
+        <div class="quote-icon" aria-hidden="true">
+          <!-- Guillemets décoratifs SVG -->
+          <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="0" y="55" font-family="Georgia, serif" font-size="80" fill="var(--color-accent)" opacity="0.18">"</text>
+          </svg>
+        </div>
+        <blockquote>
+          « Dis-moi comment tu parles, je te dirai qui tu es. »
+          <cite>Principe fondateur de la formation</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         CHECKLIST DYNAMIQUE (JSON)
+    ══════════════════════════════════════════════ -->
+    <section id="checklist" class="checklist-section">
+      <div class="container">
+        <h2 class="section-title checklist-title">Checklist de préparation de votre prise de parole</h2>
+        <p class="checklist-intro">
+          Vérifiez les points clés et entraînez-vous avec des cartes de questions/réponses.
+        </p>
+
+        <p id="data-status" class="data-status" role="status" aria-live="polite">Chargement des cartes...</p>
+        <button id="retry-button" class="retry-button" type="button" hidden>Réessayer</button>
+
+        <div id="checklist-cards" class="checklist-grid" aria-live="polite"></div>
+
+        <h3 class="flashcards-title">Flashcards d'entraînement</h3>
+        <p class="flashcards-intro">Cliquez sur "Afficher la réponse" pour vérifier votre formulation.</p>
+        <div id="flashcards-list" class="flashcards-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         LE PROBLÈME
+    ══════════════════════════════════════════════ -->
+    <section id="probleme">
+      <div class="container">
+        <p class="section-label">Vous vous reconnaissez ?</p>
+        <h2 class="section-title">On peut avoir du fond et sentir que la parole freine tout</h2>
+        <p class="section-intro">
+          Des compétences, des idées, de l'ambition — et pourtant, quelque chose bloque au moment de s'exprimer.
+          Ce n'est pas un manque de connaissance. C'est une question de langage.
+        </p>
+
+        <div class="problem-grid">
+          <div class="problem-card">
+            <div class="problem-card-icon" aria-hidden="true">
+              <img src="./assets/images/canva/3.png" alt="" loading="lazy" decoding="async">
+            </div>
+            <h3>Les mots qui manquent au mauvais moment</h3>
+            <p>En entretien, en réunion, lors d'une rencontre. Vous savez ce que vous voulez dire, mais les mots précis ne viennent pas.</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-card-icon" aria-hidden="true">
+              <img src="./assets/images/canva/2.png" alt="" loading="lazy" decoding="async">
+            </div>
+            <h3>L'impression donnée ne reflète pas le potentiel</h3>
+            <p>Vous sentez un décalage entre ce que vous valez et la façon dont les autres vous perçoivent. Le langage crée cet écart.</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-card-icon" aria-hidden="true">
+              <img src="./assets/images/canva/3.png" alt="" loading="lazy" decoding="async">
+            </div>
+            <h3>Les expressions qui affaiblissent sans le savoir</h3>
+            <p>« Du coup », « par contre », « c'est un peu compliqué »… Ces formules s'installent et nuisent à la crédibilité sans qu'on s'en rende compte.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         LA FORMATION
+    ══════════════════════════════════════════════ -->
+    <section id="formation">
+      <div class="container">
+        <p class="section-label">Ce que vous allez construire</p>
+        <h2 class="section-title">Un langage plus clair, plus solide, plus impactant</h2>
+        <p class="section-intro">
+          Parler mieux ne signifie pas parler compliqué. Il s'agit d'être précis, naturel et convaincant —
+          en entretien, en réseau, en famille, partout où les mots comptent.
+        </p>
+
+        <div class="benefits-grid">
+          <div class="benefit-item">
+            <div class="benefit-icon" aria-hidden="true">
+              <img src="./assets/images/canva/4.png" alt="" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <h3>Confiance immédiate</h3>
+              <p>Exprimer vos idées avec clarté et assurance, sans hésitation ni remplissage inutile.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon" aria-hidden="true">
+              <img src="./assets/images/canva/5.png" alt="" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <h3>Impact durable</h3>
+              <p>Formuler des messages structurés et convaincants qui restent en mémoire longtemps après la conversation.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon" aria-hidden="true">
+              <img src="./assets/images/canva/6.png" alt="" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <h3>Légitimité naturelle</h3>
+              <p>Maîtriser les codes implicites du langage valorisant pour se sentir à sa place dans les environnements exigeants.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon" aria-hidden="true">
+              <img src="./assets/images/canva/7.png" alt="" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <h3>Réussite des premières secondes</h3>
+              <p>Réussir les premiers instants d'une rencontre professionnelle, d'un entretien ou d'un événement de réseau.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon" aria-hidden="true">
+              <img src="./assets/images/canva/8.png" alt="" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <h3>Authenticité préservée</h3>
+              <p>Un entraînement concret pour parler avec plus d'assurance — sans jouer un rôle, sans paraître artificiel.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon" aria-hidden="true">
+              <img src="./assets/images/canva/9.png" alt="" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <h3>Portes qui s'ouvrent</h3>
+              <p>Une communication efficace qui crée de nouvelles opportunités professionnelles et sociales.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         MODULES
+    ══════════════════════════════════════════════ -->
+    <section id="modules">
+      <div class="container">
+        <p class="section-label">15 modules progressifs</p>
+        <h2 class="section-title">Un parcours complet, du premier mot au dernier silence</h2>
+        <p class="section-intro">
+          Deux sessions de 20 minutes par semaine. Une vidéo par module avec une situation réelle traitée.
+          Un guide PDF téléchargeable avec des exercices concrets.
+        </p>
+
+        <div class="modules-intro"></div>
+
+        <div class="modules-list">
+          <div class="module-item">
+            <div class="module-num" aria-hidden="true">1</div>
+            <span>Les 7 premières secondes — Réussir sa première phrase</span>
+          </div>
+          <div class="module-item">
+            <div class="module-num" aria-hidden="true">2</div>
+            <span>Devenir inoubliable</span>
+          </div>
+          <div class="module-item">
+            <div class="module-num" aria-hidden="true">3</div>
+            <span>Converser avec des inconnus avec naturel</span>
+          </div>
+          <div class="module-item">
+            <div class="module-num" aria-hidden="true">4</div>
+            <span>Les erreurs de langage qui diminuent votre impact</span>
+          </div>
+          <div class="module-item">
+            <div class="module-num" aria-hidden="true">5</div>
+            <span>Les mots qui inspirent la crédibilité</span>
+          </div>
+          <div class="module-item">
+            <div class="module-num" aria-hidden="true">6</div>
+            <span>Réussir un entretien ou un rendez-vous</span>
+          </div>
+          <div class="module-item">
+            <div class="module-num" aria-hidden="true">7</div>
+            <span>Raconter son parcours sans se vanter ni se dévaloriser</span>
+          </div>
+          <div class="module-item">
+            <div class="module-num" aria-hidden="true">8</div>
+            <span>Les codes cachés du langage social</span>
+          </div>
+          <div class="module-item">
+            <div class="module-num" aria-hidden="true">9</div>
+            <span>Gérer les désaccords avec tact et diplomatie</span>
+          </div>
+          <div class="module-item">
+            <div class="module-num" aria-hidden="true">10</div>
+            <span>Être perçu comme cultivé, fiable et respecté</span>
+          </div>
+          <div class="module-item">
+            <div class="module-num" aria-hidden="true">11</div>
+            <span>Les codes de la communication dans les milieux influents</span>
+          </div>
+          <div class="module-item">
+            <div class="module-num" aria-hidden="true">12</div>
+            <span>Le langage non verbal au service de la parole</span>
+          </div>
+          <div class="module-item">
+            <div class="module-num" aria-hidden="true">13</div>
+            <span>Muscler sa diction — Adapter le volume et le rythme</span>
+          </div>
+          <div class="module-item">
+            <div class="module-num" aria-hidden="true">14</div>
+            <span>Adapter son discours au profil de ses interlocuteurs</span>
+          </div>
+          <div class="module-item">
+            <div class="module-num" aria-hidden="true">15</div>
+            <span>L'art d'écouter vraiment — La valeur du silence</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         AVANT / APRÈS
+    ══════════════════════════════════════════════ -->
+    <section id="exemples">
+      <div class="container">
+        <p class="section-label">La différence en pratique</p>
+        <h2 class="section-title">Avant et après — Les mêmes situations, des mots différents</h2>
+        <p class="section-intro">
+          Ce ne sont pas des formules à réciter. Ce sont des réflexes qui s'acquièrent avec la pratique.
+        </p>
+
+        <div class="examples-grid">
+          <div class="example-card">
+            <h3 class="example-situation">Situation 1 — Se présenter</h3>
+            <div class="example-before">
+              <p class="example-label">Avant</p>
+              <p>« Bonjour, je suis Karim, je fais du marketing et je cherche des clients. »</p>
+            </div>
+            <div class="example-after">
+              <p class="example-label">Après</p>
+              <p>« Bonjour, j'aide les indépendants à mieux présenter leur offre pour signer plus facilement. »</p>
+            </div>
+          </div>
+
+          <div class="example-card">
+            <h3 class="example-situation">Situation 2 — Présenter un résultat</h3>
+            <div class="example-before">
+              <p class="example-label">Avant</p>
+              <p>« On a fait pas mal d'actions et ça a plutôt bien marché. »</p>
+            </div>
+            <div class="example-after">
+              <p class="example-label">Après</p>
+              <p>« Nous avons lancé 3 actions ciblées ; elles ont généré +18 % de demandes qualifiées ce mois-ci. »</p>
+            </div>
+          </div>
+
+          <div class="example-card">
+            <h3 class="example-situation">Situation 3 — Exprimer un désaccord</h3>
+            <div class="example-before">
+              <p class="example-label">Avant</p>
+              <p>« Votre proposition est compliquée, on ne peut pas la prendre. »</p>
+            </div>
+            <div class="example-after">
+              <p class="example-label">Après</p>
+              <p>« Votre proposition est pertinente ; pour avancer, ajustons d'abord le périmètre à notre budget actuel. »</p>
+            </div>
+          </div>
+
+          <div class="example-card">
+            <h3 class="example-situation">Situation 4 — Donner un retour</h3>
+            <div class="example-before">
+              <p class="example-label">Avant</p>
+              <p>« Ce n'est pas bon, il faut tout refaire. »</p>
+            </div>
+            <div class="example-after">
+              <p class="example-label">Après</p>
+              <p>« Le fond est solide ; retravaillons la structure pour rendre le message plus direct et convaincant. »</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         OFFRE
+    ══════════════════════════════════════════════ -->
+    <section id="offre">
+      <div class="container">
+        <p class="section-label">Pour commencer</p>
+        <h2 class="section-title">Jugez la qualité avant de vous engager</h2>
+        <p class="section-intro">
+          Recevez le Module 1 gratuitement. Découvrez l'approche, les exercices, le niveau d'exigence.
+          Continuez uniquement si vous êtes convaincu.
+        </p>
+
+        <div class="offer-box">
+          <!-- Illustration clé SVG -->
+          <div class="offer-illustration" aria-hidden="true">
+            <svg viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="28" cy="28" r="18" stroke="rgba(255,255,255,0.7)" stroke-width="2.5"/>
+              <circle cx="28" cy="28" r="10" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+              <rect x="44" y="25" width="52" height="7" rx="3.5" fill="rgba(255,255,255,0.6)"/>
+              <rect x="82" y="32" width="7" height="10" rx="2" fill="rgba(255,255,255,0.6)"/>
+              <rect x="72" y="32" width="7" height="8" rx="2" fill="rgba(255,255,255,0.5)"/>
+              <circle cx="28" cy="28" r="4" fill="rgba(255,255,255,0.4)"/>
+            </svg>
+          </div>
+          <h3>Module 1 offert — Les 7 premières secondes</h3>
+          <p>
+            Réussissez votre première phrase, présentez-vous avec assurance
+            et laissez une impression qui reste. Résultat visible dès la première semaine.
+          </p>
+          <a href="#offre" class="btn-primary">Recevoir le Module 1 gratuitement</a>
+          <div class="offer-details">
+            <span>Vidéo de formation</span>
+            <span>Guide PDF téléchargeable</span>
+            <span>Exercices concrets</span>
+            <span>Sans engagement</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>Les mots qui ouvrent les portes</strong></p>
+      <p>Formation expression orale — 15 modules progressifs</p>
+      <p style="margin-top:0.75rem; font-size:0.78rem; opacity:0.5;">Mini-site V2 — Séance 19 — Chargement JSON valide</p>
+    </div>
+  </footer>
+
+  <!-- Source principale: ./data/data.json ; inline-data conserve un mode secours local. -->
+  <script id="inline-data" type="application/json">
+  [
+    {
+      "id": "1",
+      "titre": "Commencer une intervention avec impact",
+      "description": "Formuler une idée claire et utiliser des verbes d’action.",
+      "categorie": "expression orale",
+      "niveau": "débutant",
+      "objectifs": ["gagner en clarté", "agir avec assurance"],
+      "activite": "formation",
+      "livrable": "flashcard",
+      "question": "Comment commencer une intervention avec impact ?",
+      "reponse": "En formulant une idée claire et en utilisant des verbes d’action."
+    },
+    {
+      "id": "2",
+      "titre": "Éviter les mots qui affaiblissent",
+      "description": "Certaines hésitations donnent une impression de doute.",
+      "categorie": "communication",
+      "niveau": "débutant",
+      "objectifs": ["renforcer sa présence", "éviter les hésitations"],
+      "activite": "exercice",
+      "livrable": "flashcard",
+      "question": "Quel type de mot peut affaiblir votre message ?",
+      "reponse": "Les hésitations comme « euh », « enfin » ou « peut-être »."
+    },
+    {
+      "id": "3",
+      "titre": "Rendre un message compréhensible",
+      "description": "Un message est plus facile à suivre lorsqu’il est bien structuré.",
+      "categorie": "organisation",
+      "niveau": "intermédiaire",
+      "objectifs": ["organiser ses idées", "mieux se faire comprendre"],
+      "activite": "méthode",
+      "livrable": "carte d’aide",
+      "question": "Comment rendre un message plus compréhensible ?",
+      "reponse": "En organisant vos idées autour d’un point principal et de quelques arguments concrets."
+    },
+    {
+      "id": "4",
+      "titre": "Projeter une présence calme",
+      "description": "Une posture de voix et de rythme rassure l’auditeur.",
+      "categorie": "présence",
+      "niveau": "débutant",
+      "objectifs": ["apaiser le stress", "améliorer sa présence"],
+      "activite": "exercice de respiration",
+      "livrable": "flashcard",
+      "question": "Comment projeter une présence calme et rassurante ?",
+      "reponse": "En adoptant un rythme régulier, en respirant lentement et en ralentissant votre débit de parole."
+    },
+    {
+      "id": "5",
+      "titre": "Créer une première impression forte",
+      "description": "La première impression se construit dès les premiers mots.",
+      "categorie": "présentation",
+      "niveau": "intermédiaire",
+      "objectifs": ["marquer les esprits", "communiquer avec impact"],
+      "activite": "présentation",
+      "livrable": "flashcard",
+      "question": "Comment créer une première impression forte dès le début ?",
+      "reponse": "En vous présentant avec un message direct et actif, par exemple : « Je fais… » plutôt que « Je suis… »."
+    },
+    {
+      "id": "6",
+      "titre": "Donner de l’impact à sa parole",
+      "description": "Une parole forte ne nécessite pas d’être surchargée.",
+      "categorie": "impact",
+      "niveau": "intermédiaire",
+      "objectifs": ["mettre en valeur son propos", "renforcer la portée du message"],
+      "activite": "exercice",
+      "livrable": "flashcard",
+      "question": "Comment donner de l’impact à votre parole sans la surcharger ?",
+      "reponse": "En choisissant un ton juste, une pause bien placée et un exemple concret."
+    }
+  ]
+  </script>
+
+  <script src="./js/app.js?v=2"></script>
+</body>
+</html>
