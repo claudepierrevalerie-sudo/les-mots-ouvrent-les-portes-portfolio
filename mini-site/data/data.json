@@ -1,0 +1,91 @@
+[
+  {
+    "id": "1",
+    "titre": "Commencer une intervention avec impact",
+    "description": "Formuler une idée claire et utiliser des verbes d’action.",
+    "categorie": "expression orale",
+    "niveau": "débutant",
+    "objectifs": [
+      "gagner en clarté",
+      "agir avec assurance"
+    ],
+    "activite": "formation",
+    "livrable": "flashcard",
+    "question": "Comment commencer une intervention avec impact ?",
+    "reponse": "En formulant une idée claire et en utilisant des verbes d’action."
+  },
+  {
+    "id": "2",
+    "titre": "Éviter les mots qui affaiblissent",
+    "description": "Certaines hésitations donnent une impression de doute.",
+    "categorie": "communication",
+    "niveau": "débutant",
+    "objectifs": [
+      "renforcer sa présence"
+    ],
+    "activite": "exercice",
+    "livrable": "flashcard",
+    "question": "Quel type de mot peut affaiblir votre message ?",
+    "reponse": "Les hésitations comme « euh », « enfin » ou « peut-être »."
+  },
+  {
+    "id": "3",
+    "titre": "Rendre un message compréhensible",
+    "description": "Un message est plus facile à suivre lorsqu’il est bien structuré.",
+    "categorie": "organisation",
+    "niveau": "intermédiaire",
+    "objectifs": [
+      "organiser ses idées",
+      "mieux se faire comprendre"
+    ],
+    "activite": "méthode",
+    "livrable": "carte d’aide",
+    "question": "Comment rendre un message plus compréhensible ?",
+    "reponse": "En organisant vos idées autour d’un point principal et de quelques arguments concrets."
+  },
+  {
+    "id": "4",
+    "titre": "Projeter une présence calme",
+    "description": "Une posture de voix et de rythme rassure l’auditeur.",
+    "categorie": "présence",
+    "niveau": "débutant",
+    "objectifs": [
+      "apaiser le stress",
+      "améliorer sa présence"
+    ],
+    "activite": "exercice de respiration",
+    "livrable": "flashcard",
+    "question": "Comment projeter une présence calme et rassurante ?",
+    "reponse": "En adoptant un rythme régulier, en respirant lentement et en ralentissant votre débit de parole."
+  },
+  {
+    "id": "5",
+    "titre": "Créer une première impression forte",
+    "description": "La première impression se construit dès les premiers mots.",
+    "categorie": "présentation",
+    "niveau": "intermédiaire",
+    "objectifs": [
+      "marquer les esprits",
+      "communiquer avec impact"
+    ],
+    "activite": "présentation",
+    "livrable": "flashcard",
+    "question": "Comment créer une première impression forte dès le début ?",
+    "reponse": "En vous présentant avec un message direct et actif, par exemple : « Je fais… » plutôt que « Je suis… »."
+  },
+  {
+    "id": "6",
+    "titre": "Donner de l’impact à sa parole",
+    "description": "Une parole forte ne nécessite pas d’être surchargée.",
+    "categorie": "impact",
+    "niveau": "intermédiaire",
+    "objectifs": [
+      "mettre en valeur son propos",
+      "renforcer la portée du message"
+    ],
+    "activite": "exercice",
+    "livrable": "flashcard",
+    "question": "Comment donner de l’impact à votre parole sans la surcharger ?",
+    "reponse": "En choisissant un ton juste, une pause bien placée et un exemple concret."
+  }
+]
