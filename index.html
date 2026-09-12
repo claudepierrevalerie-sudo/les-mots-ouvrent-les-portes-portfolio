@@ -50,10 +50,12 @@
     .module-card { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start; }
     .module-card .number { margin: .15rem 0 0; font-size: 1.2rem; }
     .module-card a { display: inline-block; margin-top: .7rem; font: 700 .9rem/1.2 "Segoe UI", Arial, sans-serif; }
-    .pitch-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
-    .pitch-actions a { display: inline-block; padding: 11px 15px; border-radius: 8px; font: 700 .9rem/1.2 "Segoe UI", Arial, sans-serif; text-decoration: none; }
+    .pitch-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; }
+    .pitch-actions a { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 13px 18px; border-radius: 9px; font: 700 .95rem/1.2 "Segoe UI", Arial, sans-serif; text-decoration: none; box-shadow: 0 7px 16px rgba(31,28,27,.12); transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+    .pitch-actions a:hover, .pitch-actions a:focus-visible { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(31,28,27,.18); }
     .pitch-print { background: var(--navy); color: #fff; }
     .pitch-video { background: var(--gold); color: #fff; }
+    @media (max-width: 560px) { .pitch-actions a { width: 100%; } }
     .timeline { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; counter-reset: step; }
     .timeline li { counter-increment: step; display: grid; grid-template-columns: 42px 1fr; gap: 14px; align-items: start; }
     .timeline li::before { content: counter(step, decimal-leading-zero); display: grid; place-items: center; width: 42px; aspect-ratio: 1; border-radius: 50%; background: var(--navy); color: #fff; font: 700 .8rem/1 "Segoe UI", Arial, sans-serif; }
