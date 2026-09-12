@@ -50,6 +50,10 @@
     .module-card { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start; }
     .module-card .number { margin: .15rem 0 0; font-size: 1.2rem; }
     .module-card a { display: inline-block; margin-top: .7rem; font: 700 .9rem/1.2 "Segoe UI", Arial, sans-serif; }
+    .pitch-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+    .pitch-actions a { display: inline-block; padding: 11px 15px; border-radius: 8px; font: 700 .9rem/1.2 "Segoe UI", Arial, sans-serif; text-decoration: none; }
+    .pitch-print { background: var(--navy); color: #fff; }
+    .pitch-video { background: var(--gold); color: #fff; }
     .timeline { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; counter-reset: step; }
     .timeline li { counter-increment: step; display: grid; grid-template-columns: 42px 1fr; gap: 14px; align-items: start; }
     .timeline li::before { content: counter(step, decimal-leading-zero); display: grid; place-items: center; width: 42px; aspect-ratio: 1; border-radius: 50%; background: var(--navy); color: #fff; font: 700 .8rem/1 "Segoe UI", Arial, sans-serif; }
@@ -93,8 +97,10 @@
       <p>J'ai donc été confrontée à un écart concret : une page web était accessible, mais sa documentation ne disait pas exactement la même chose. J'ai relu le README, vérifié l'état du dépôt, corrigé uniquement le fichier concerné, contrôlé le diff et documenté la correction.</p>
       <p>Ce que j'ai appris, c'est que le véritable enjeu d'un projet n'est pas la quantité produite, mais la précision : la précision des mots, des choix et des corrections. Aujourd'hui, je présente une manière de travailler : clarifier, contrôler, prouver et continuer malgré les difficultés.</p>
       <p>Cette progression, cette rigueur et cette persévérance constituent le résultat que je souhaite partager avec mon professeur, Yasmina et les participantes et participants au Challenge 100 Jours.</p>
-      <p><a href="portfolio/pitch-3-minutes-valerie-v2.html">Lire le pitch final prêt à enregistrer</a></p>
-      <p><a href="https://my-video.bigvu.tv/6aa55b0fe10c9652b3bfd83d/6aa56f8f976918801d50a5fe" target="_blank" rel="noopener">Voir la vidéo du pitch de Valérie · 4 min 03 s</a></p>
+      <div class="pitch-actions" aria-label="Ressources de présentation orale">
+        <a class="pitch-print" href="portfolio/pitch-3-minutes-valerie-v2.html">Lire le pitch final imprimable</a>
+        <a class="pitch-video" href="https://my-video.bigvu.tv/6aa55b0fe10c9652b3bfd83d/6aa56f8f976918801d50a5fe" target="_blank" rel="noopener">Voir la vidéo du pitch · 4 min 03 s</a>
+      </div>
     </section>
 
     <section>
