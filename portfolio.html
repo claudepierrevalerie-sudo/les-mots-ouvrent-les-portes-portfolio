@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio de Valérie pour le projet Les mots ouvrent les portes, présenté jusqu'au Module 4.">
+  <title>Les mots ouvrent les portes — Portfolio de Valérie</title>
+  <style>
+    :root {
+      --ink: #1d1e22;
+      --muted: #5d5a56;
+      --navy: #4d3a32;
+      --blue: #4d6a7c;
+      --cyan: #dcebe7;
+      --gold: #b05d3a;
+      --paper: #fffdf9;
+      --soft: #fffaf3;
+      --line: #d7cdb8;
+      --success: #e8f1ed;
+      --warning: #efe4d2;
+      --shadow: 0 18px 42px rgba(31, 28, 27, .08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: linear-gradient(180deg, #f7efe5 0, #f1e7d8 42rem, #ead9c9 100%); font: 16px/1.6 Georgia, "Times New Roman", serif; }
+    a { color: var(--blue); }
+    .shell { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    .site-header { position: sticky; top: 0; z-index: 10; background: rgba(77, 58, 50, .96); border-bottom: 2px solid var(--gold); backdrop-filter: blur(12px); }
+    nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 64px; }
+    .brand { color: #fff; font-weight: 700; text-decoration: none; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: .85rem; justify-content: flex-end; }
+    .nav-links a { color: #fff; font: 600 .85rem/1.2 "Segoe UI", Arial, sans-serif; text-decoration: none; }
+    .hero { margin-top: 28px; padding: clamp(28px, 6vw, 72px); background: linear-gradient(135deg, #f3d8cb 0%, #fffaf3 52%, #dcebe7 100%); color: var(--ink); border-radius: 20px; box-shadow: var(--shadow); overflow: hidden; position: relative; }
+    .hero::after { content: ""; position: absolute; inset: auto -10% -45% 48%; height: 320px; background: rgba(176, 93, 58, .14); transform: rotate(-12deg); }
+    .eyebrow { margin: 0 0 .65rem; color: var(--gold); font: 700 .78rem/1.2 "Segoe UI", Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+    h1, h2, h3 { line-height: 1.15; }
+    h1 { max-width: 760px; margin: 0 0 1rem; font-size: clamp(2.2rem, 6vw, 4.7rem); }
+    h2 { margin: 0 0 1rem; color: var(--navy); font-size: clamp(1.7rem, 3vw, 2.35rem); }
+    h3 { margin: 0 0 .55rem; color: var(--blue); font-size: 1.25rem; }
+    .hero p:not(.eyebrow) { max-width: 760px; margin: 0; color: var(--muted); font-size: 1.12rem; }
+    .status { display: inline-block; margin-top: 1.35rem; padding: .45rem .75rem; border: 1px solid rgba(77,58,50,.25); border-radius: 999px; color: var(--navy); font: 700 .82rem/1.2 "Segoe UI", Arial, sans-serif; }
+    main { padding: 30px 0 60px; }
+    section { margin-top: 28px; padding: clamp(22px, 4vw, 42px); background: var(--paper); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 10px 28px rgba(13,35,64,.06); }
+    .lead { color: var(--muted); font-size: 1.08rem; }
+    .quote { margin: 1.4rem 0 0; padding: 1rem 1.2rem; border-left: 4px solid var(--gold); background: var(--warning); font-size: 1.1rem; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .card { padding: 18px; background: var(--soft); border: 1px solid var(--line); border-radius: 10px; }
+    .card p { margin: .35rem 0 0; color: var(--muted); }
+    .number { display: block; margin-bottom: .45rem; color: var(--gold); font: 700 .8rem/1 "Segoe UI", Arial, sans-serif; letter-spacing: .08em; }
+    .module-card { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start; }
+    .module-card .number { margin: .15rem 0 0; font-size: 1.2rem; }
+    .module-card a { display: inline-block; margin-top: .7rem; font: 700 .9rem/1.2 "Segoe UI", Arial, sans-serif; }
+    .timeline { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; counter-reset: step; }
+    .timeline li { counter-increment: step; display: grid; grid-template-columns: 42px 1fr; gap: 14px; align-items: start; }
+    .timeline li::before { content: counter(step, decimal-leading-zero); display: grid; place-items: center; width: 42px; aspect-ratio: 1; border-radius: 50%; background: var(--navy); color: #fff; font: 700 .8rem/1 "Segoe UI", Arial, sans-serif; }
+    .timeline p { margin: .2rem 0 0; color: var(--muted); }
+    .notice { padding: 16px 18px; border-left: 4px solid #4c9a69; background: var(--success); }
+    .notice.warning { border-color: #bb7a19; background: var(--warning); }
+    .notice.info { border-color: var(--blue); background: var(--cyan); }
+    .links { display: grid; gap: 10px; }
+    .links a { display: block; padding: 12px 14px; background: var(--soft); border: 1px solid var(--line); border-radius: 8px; text-decoration: none; }
+    .links strong { display: block; color: var(--navy); }
+    .links span { display: block; margin-top: .2rem; color: var(--muted); font-size: .92rem; }
+    footer { padding: 28px 0 44px; color: var(--muted); font-size: .9rem; }
+    @media (max-width: 760px) { .nav-links { display: none; } .grid { grid-template-columns: 1fr; } .hero { border-radius: 12px; } section { border-radius: 10px; } }
+    @media print { body { background: #fff; } .site-header { position: static; background: #fff; border-bottom: 1px solid #999; } .brand, .nav-links a { color: #111; } .hero, section { box-shadow: none; break-inside: avoid; } .hero { color: #111; background: #fff; border: 2px solid #111; } .hero p:not(.eyebrow) { color: #222; } .hero::after { display: none; } a { color: #111; } }
+  </style>
+</head>
+<body>
+  <main class="shell" id="accueil">
+    <div class="hero">
+      <p class="eyebrow">Portfolio local · Challenge 100 Jours</p>
+      <h1>Les mots ouvrent les portes</h1>
+      <p>Un parcours de création pédagogique, de découverte numérique et de contrôle humain, co-rédigé et co-contrôlé par Yasmina et Valérie.</p>
+      <span class="status">Périmètre présenté : Modules 1 à 4 · Relecture humaine requise</span>
+    </div>
+
+    <section id="projet">
+      <p class="eyebrow">01 · Le projet</p>
+      <h2>Une intention devenue un parcours partageable</h2>
+      <p class="lead">Les mots ouvrent les portes est un projet consacré à la qualité de l'expression orale, aux mots qui rendent une intention plus claire et aux attitudes qui facilitent les échanges dans les situations importantes.</p>
+      <p>Ce portfolio ne constitue pas une candidature à la finale. Il présente un aboutissement fidèle du travail réalisé dans le Challenge 100 Jours, commencé sans expérience préalable de la programmation.</p>
+      <p class="quote">L'IA assiste. Les humaines cadrent, relisent, contrôlent et décident.</p>
+    </section>
+
+    <section id="pitch">
+      <p class="eyebrow">02 · Présentation orale</p>
+      <h2>Un projet construit avec patience et contrôle</h2>
+      <p>Je suis partie sur une idée assez simple : rendre la parole plus claire, plus structurée et plus accessible. Mon projet s'appelle « Les mots ouvrent les portes ». Il s'agit d'une formation consacrée au choix des mots, aux attitudes, aux moyens d'expression et aux codes sociaux qui peuvent faciliter ou ralentir une évolution professionnelle ou personnelle.</p>
+      <p>J'ai construit ce parcours avec des contenus, des modules et des supports pédagogiques, puis je l'ai organisé dans un portfolio plus professionnel et plus lisible. Et je vais être honnête : ce n'était pas facile. J'ai rencontré des moments de doute, trop de fichiers, trop d'idées et pas assez de clarté.</p>
+      <p>Copilot et Codex m'ont aidée à structurer, reformuler, organiser et clarifier. Mais je suis restée responsable du besoin, du sens du projet, du choix des contenus et de la correction. Je décide. Je vérifie. Je corrige.</p>
+      <p class="quote">Un projet ne se résume pas à produire beaucoup. Il faut aussi savoir rendre ce que l'on a construit vérifiable.</p>
+      <p>J'ai donc été confrontée à un écart concret : une page web était accessible, mais sa documentation ne disait pas exactement la même chose. J'ai relu le README, vérifié l'état du dépôt, corrigé uniquement le fichier concerné, contrôlé le diff et documenté la correction.</p>
+      <p>Ce que j'ai appris, c'est que le véritable enjeu d'un projet n'est pas la quantité produite, mais la précision : la précision des mots, des choix et des corrections. Aujourd'hui, je présente une manière de travailler : clarifier, contrôler, prouver et continuer malgré les difficultés.</p>
+      <p>Cette progression, cette rigueur et cette persévérance constituent le résultat que je souhaite partager avec mon professeur, Yasmina et les participantes et participants au Challenge 100 Jours.</p>
+      <p><a href="portfolio/pitch-3-minutes-valerie-v2.html">Lire le pitch final prêt à enregistrer</a></p>
+      <p><a href="https://my-video.bigvu.tv/6aa55b0fe10c9652b3bfd83d/6aa56f8f976918801d50a5fe" target="_blank" rel="noopener">Voir la vidéo du pitch de Valérie · 4 min 03 s</a></p>
+    </section>
+
+    <section>
+      <p class="eyebrow">02 · Ce que le parcours rend visible</p>
+      <h2>Des contenus, des supports et une méthode</h2>
+      <div class="grid">
+        <article class="card"><span class="number">01</span><h3>Un projet pédagogique</h3><p>Une progression consacrée à la première impression, à la mémorabilité, à la conversation et à la précision du langage.</p></article>
+        <article class="card"><span class="number">02</span><h3>Des productions structurées</h3><p>Des contenus Markdown, des versions HTML imprimables, des exercices, des scripts et des évaluations.</p></article>
+        <article class="card"><span class="number">03</span><h3>Une évolution numérique</h3><p>Une transformation progressive du contenu vers un mini-site, des données structurées et des interactions locales.</p></article>
+        <article class="card"><span class="number">04</span><h3>Un apprentissage réel</h3><p>Une découverte progressive des fichiers, de l'organisation, du contrôle, des statuts et des limites techniques.</p></article>
+      </div>
+    </section>
+
+    <section id="modules">
+      <p class="eyebrow">03 · Les productions pédagogiques</p>
+      <h2>Une progression cohérente jusqu'au Module 4</h2>
+      <div class="grid">
+        <article class="card module-card"><span class="number">01</span><div><h3>Les 7 premières secondes</h3><p>Entrer dans l'attention avec une première phrase claire, crédible et mémorable.</p><a href="modules/module-01/module-01-les-7-premieres-secondes.html">Ouvrir le Module 1</a></div></article>
+        <article class="card module-card"><span class="number">02</span><div><h3>Devenir inoubliable</h3><p>Laisser une idée utile, une histoire ou une question qui enrichit l'échange.</p><a href="modules/module-02/module-02-devenir-inoubliable.html">Ouvrir le Module 2</a></div></article>
+        <article class="card module-card"><span class="number">03</span><div><h3>Converser avec des inconnus</h3><p>Ajuster la distance relationnelle, faire circuler la parole et conclure avec élégance.</p><a href="modules/module-03/module-03-converser-avec-des-inconnus.html">Ouvrir le Module 3</a></div></article>
+        <article class="card module-card"><span class="number">04</span><div><h3>Les erreurs de langage</h3><p>Transformer les formulations faibles en messages plus précis, naturels et crédibles.</p><a href="modules/module-04/module-04-erreurs-de-langage.html">Ouvrir le Module 4</a></div></article>
+      </div>
+      <p class="notice warning" style="margin-top: 18px;">Le Module 5 initialement prévu est annulé. Le Module 6 est conservé dans les sources du projet, mais il n'est pas intégré à cette version.</p>
+    </section>
+
+    <section id="progression">
+      <p class="eyebrow">04 · La progression numérique</p>
+      <h2>Du contenu vers une expérience consultable</h2>
+      <ol class="timeline">
+        <li><div><h3>Cadrer</h3><p>Définir le projet, ses destinataires, ses objectifs et ses limites.</p></div></li>
+        <li><div><h3>Produire</h3><p>Rédiger les modules, les exercices, les exemples et les supports imprimables.</p></div></li>
+        <li><div><h3>Adapter</h3><p>Transformer progressivement les contenus en pages HTML, données et interactions.</p></div></li>
+        <li><div><h3>Contrôler</h3><p>Vérifier les fichiers, les liens, les statuts, les ressources et la cohérence entre documentation et réalité.</p></div></li>
+      </ol>
+      <p style="margin-top: 18px;"><a href="mini-site/index.html">Ouvrir le mini-site complet</a></p>
+    </section>
+
+    <section id="preuves">
+      <p class="eyebrow">05 · Les preuves</p>
+      <h2>Relier chaque affirmation à une trace</h2>
+      <div class="links">
+        <a href="preuves/lecture-preuve-module-1.html"><strong>Production principale du Module 1</strong><span>Contenu, progression, contribution et limites.</span></a>
+        <a href="preuves/lecture-preuve-web.html"><strong>Première preuve web</strong><span>Trace de la production du mini-site initial.</span></a>
+        <a href="preuves/lecture-preuve-module-06.html"><strong>Dossier global de preuves du Module 06</strong><span>Organisation, documentation et contrôle du projet.</span></a>
+        <a href="preuves/lecture-preuve-24.html"><strong>Preuve 24</strong><span>Modification limitée du README et contrôle du résultat.</span></a>
+        <a href="preuves/lecture-workflow-seance-24.html"><strong>Workflow de contrôle</strong><span>Méthode appliquée à une correction réelle et limitée.</span></a>
+      </div>
+    </section>
+
+    <section id="limites">
+      <p class="eyebrow">06 · Limites et suite</p>
+      <h2>Finir proprement, sans prétendre à davantage</h2>
+      <p>Cette version s'arrête volontairement au Module 4 afin de préserver son homogénéité. Le mini-site conserve la mémoire du projet global et affiche encore sa structure historique de 15 modules ; le portfolio documente, lui, l'état des contenus retenus pour ce partage.</p>
+      <p>Les validations humaines, les droits des images et citations, ainsi que la relecture finale du dossier restent à compléter avant l'archive ZIP.</p>
+      <p class="notice">La qualité de ce portfolio tient autant à ce qu'il montre qu'à ce qu'il refuse d'exagérer.</p>
+    </section>
+  </main>
+
+  <footer class="shell">
+    Portfolio local de Valérie · Les mots ouvrent les portes · Version V2 · Relecture humaine requise
+  </footer>
+</body>
+</html>
