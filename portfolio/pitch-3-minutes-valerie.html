@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pitch de présentation — Valérie</title>
+  <style>
+    :root {
+      --paper: #fffaf3;
+      --ink: #1d1e22;
+      --muted: #5d5a56;
+      --terracotta: #b05d3a;
+      --slate: #4d6a7c;
+      --sand: #efe4d2;
+      --line: #d7cdb8;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: #ead9c9;
+      color: var(--ink);
+      font: 17px/1.72 Georgia, "Times New Roman", serif;
+    }
+    .page {
+      max-width: 880px;
+      margin: 30px auto;
+      padding: 0 18px 50px;
+    }
+    .sheet {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 18px 42px rgba(31, 28, 27, .12);
+    }
+    header {
+      padding: 36px 42px 30px;
+      background: linear-gradient(135deg, #f3d8cb 0%, #fffaf3 55%, #dcebe7 100%);
+      border-bottom: 1px solid var(--line);
+    }
+    .tag {
+      display: inline-block;
+      padding: 6px 10px;
+      border: 1px solid rgba(176, 93, 58, .28);
+      border-radius: 999px;
+      color: var(--terracotta);
+      font: 700 .75rem/1.2 "Segoe UI", Arial, sans-serif;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 16px 0 8px;
+      color: #4d3a32;
+      font-size: 2.45rem;
+      line-height: 1.08;
+    }
+    .subtitle { margin: 0; color: var(--muted); font-size: 1.05rem; }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .meta span {
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .65);
+      color: var(--slate);
+      font: 600 .82rem/1.2 "Segoe UI", Arial, sans-serif;
+    }
+    main { padding: 34px 42px 42px; }
+    .instruction {
+      margin: 0 0 28px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--slate);
+      background: #dcebe7;
+      color: #304c58;
+      font: 600 .92rem/1.5 "Segoe UI", Arial, sans-serif;
+    }
+    p { margin: 0 0 18px; }
+    .closing {
+      margin-top: 28px;
+      padding: 16px 18px;
+      border-left: 4px solid var(--terracotta);
+      background: var(--sand);
+    }
+    footer {
+      padding: 16px 42px 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font: .84rem/1.4 "Segoe UI", Arial, sans-serif;
+    }
+    @media (max-width: 640px) {
+      body { background: var(--paper); }
+      .page { margin: 0; padding: 0; }
+      .sheet { border: 0; border-radius: 0; box-shadow: none; }
+      header, main, footer { padding-left: 22px; padding-right: 22px; }
+      h1 { font-size: 2rem; }
+    }
+    @media print {
+      @page { size: A4; margin: 15mm; }
+      body { background: #fff; font-size: 12.5pt; }
+      .page { max-width: none; margin: 0; padding: 0; }
+      .sheet { border: 0; border-radius: 0; box-shadow: none; }
+      header, main, footer { padding-left: 0; padding-right: 0; }
+      header { padding-top: 0; }
+      header, .instruction, .closing { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      p { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <article class="sheet">
+      <header>
+        <span class="tag">Pitch de présentation · 3 minutes</span>
+        <h1>Les mots ouvrent les portes</h1>
+        <p class="subtitle">Texte prêt à enregistrer — Valérie</p>
+        <div class="meta">
+          <span>Modules 1 à 4</span>
+          <span>Co-rédaction : Yasmina + Valérie</span>
+          <span>Version imprimable</span>
+        </div>
+      </header>
+      <main>
+        <p class="instruction">Conseil d'enregistrement : lisez à voix haute, à un rythme posé. Marquez une courte pause entre les paragraphes et gardez un ton naturel. Le texte est prévu pour environ trois minutes.</p>
+
+        <p>Bonjour à toutes et à tous,</p>
+
+        <p>Je m'appelle Valérie et mon projet s'appelle <strong>Les mots ouvrent les portes</strong>.</p>
+
+        <p>Je suis partie d'une idée simple : la manière dont nous choisissons nos mots influence souvent la manière dont notre message est compris. Un mot vague peut ralentir une conversation. Une phrase précise peut faciliter une décision, une rencontre ou une prise de parole.</p>
+
+        <p>J'ai donc construit, avec Yasmina, un parcours consacré à l'expression orale : la première impression, la mémorabilité, la conversation avec des inconnus et la précision du langage. Les contenus ont été co-rédigés et co-contrôlés par Yasmina et moi.</p>
+
+        <p>Le résultat n'est pas seulement une suite de textes. Chaque module possède un objectif, un résultat attendu, des chapitres, des exemples, des exercices et une mise en pratique. Le Module 1, <strong>Les 7 premières secondes</strong>, est la production qui représente le mieux mon parcours. Il apprend à construire trois versions d'une présentation : sept secondes, vingt secondes et une minute. Il existe en Markdown pour la relecture, en HTML pour la consultation et l'impression, puis sous la forme d'un mini-site.</p>
+
+        <p>Ce passage vers le numérique a été une véritable découverte pour moi. Je ne savais pas programmer au début du Challenge. J'ai dû apprendre progressivement à distinguer le contenu de sa présentation, puis la page HTML des éléments qui la font fonctionner. Le CSS organise l'apparence. Le JavaScript ajoute les interactions. Les données JSON séparent les informations de leur affichage. Le manifeste et le service worker préparent le fonctionnement d'une PWA.</p>
+
+        <p>Concrètement, le mini-site charge six cartes de préparation et six flashcards. Chaque carte possède un titre, une description, une catégorie, des objectifs, une activité et une réponse. En mode serveur, ces données sont lues dans un fichier JSON. En ouverture directe par double-clic, une copie intégrée prend le relais afin que la preuve reste consultable localement. J'ai aussi ajouté une page de contrôle qui vérifie le chargement des données, le schéma, les cartes, les flashcards, le menu mobile et l'absence de débordement horizontal.</p>
+
+        <p>L'IA m'a aidée à structurer, reformuler, organiser et préparer du code. Mais elle n'a pas décidé du besoin, du sens du projet, des contenus ou de la validation. J'ai dû relire, comparer, corriger et accepter de reconnaître ce qui n'était pas encore démontré.</p>
+
+        <p>La difficulté principale a été de ne pas me perdre dans la quantité : trop de fichiers, trop d'idées et parfois un écart entre ce qui était visible et ce qui était documenté. J'ai appris à revenir au périmètre, à contrôler les liens et à distinguer une production, un contrôle local et une validation humaine.</p>
+
+        <p>Le Module 5 initialement prévu est annulé et le Module 6 reste hors du périmètre de cette version. Je préfère présenter un ensemble cohérent jusqu'au Module 4 plutôt que d'afficher une suite inachevée.</p>
+
+        <p class="closing">Aujourd'hui, je ne présente donc pas une expertise de développeuse. Je présente une progression réelle : une intention devenue des contenus, des supports, un mini-site et un dossier de preuves. L'IA m'a assistée. J'ai piloté, contrôlé et décidé. Et surtout, j'ai appris qu'un projet n'est pas seulement réussi lorsqu'il fonctionne : il l'est aussi lorsque l'on peut expliquer ce qu'il contient, ce qui a été vérifié et ce qui reste encore à améliorer.</p>
+      </main>
+      <footer>Les mots ouvrent les portes · Portfolio de Valérie · Texte prêt à enregistrer</footer>
+    </article>
+  </div>
+</body>
+</html>
